@@ -141,7 +141,7 @@ export const TrackingProvider = ({ children }) => {
   };
 
   const startShipmment = async (getProduct) => {
-    const { reveiver, index } = getProduct;
+    const { receiver, index } = getProduct;
 
     try {
       if (!window.ethereum) return "Install Metamask";
@@ -156,7 +156,7 @@ export const TrackingProvider = ({ children }) => {
       const contract = fetchContract(signer);
       const shipment = await contract.startShipment(
         accounts[0],
-        reveiver,
+        receiver,
         index * 1
       );
       shipment.wait();
